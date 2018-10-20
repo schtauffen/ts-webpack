@@ -4,21 +4,30 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "precommit": "pretty-quick --staged",
     "start": "run-p serve-json dev-server",
     "dev-server": "webpack-dev-server",
     "build": "webpack -p",
     "serve-json": "json-server --watch db.json",
     "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}",
-    "tslint-check": "cat .prettierrc | tslint-config-prettier-check ./tslint.json"
+    "tslint-check":
+      "cat .prettierrc | tslint-config-prettier-check ./tslint.json",
+    "tdd": "jest --watch",
+    "test": "jest --coverage"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/jest": "^23.3.5",
     "awesome-typescript-loader": "^5.0.0",
     "cross-env": "^5.1.4",
     "css-loader": "^1.0.0",
     "husky": "^1.0.0-rc.13",
+    "jest": "^23.6.0",
     "json-server": "^0.14.0",
     "mini-css-extract-plugin": "^0.4.1",
     "node-sass": "^4.9.2",
@@ -29,6 +38,7 @@
     "sass-loader": "^7.0.3",
     "source-map-loader": "^0.2.3",
     "style-loader": "^0.21.0",
+    "ts-jest": "^23.10.4",
     "tslint": "^5.9.1",
     "tslint-config-prettier": "^1.10.0",
     "typescript": "^2.8.1",
