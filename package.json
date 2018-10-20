@@ -10,8 +10,7 @@
     "build": "webpack -p",
     "serve-json": "json-server --watch db.json",
     "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}",
-    "tslint-check":
-      "cat .prettierrc | tslint-config-prettier-check ./tslint.json"
+    "tslint-check": "cat .prettierrc | tslint-config-prettier-check ./tslint.json"
   },
   "author": "",
   "license": "ISC",
@@ -32,7 +31,6 @@
     "style-loader": "^0.21.0",
     "tslint": "^5.9.1",
     "tslint-config-prettier": "^1.10.0",
-    "tslint-react": "^3.5.1",
     "typescript": "^2.8.1",
     "uglifyjs-webpack-plugin": "^1.2.7",
     "webpack": "^4.6.0",
