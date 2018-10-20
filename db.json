@@ -1,0 +1,12 @@
+{
+  "regions": [
+    {
+      "id": 0,
+      "name": "North America"
+    },
+    {
+      "id": 1,
+      "name": "South America"
+    }
+  ]
+}
