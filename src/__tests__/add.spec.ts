@@ -1,7 +1,7 @@
-import { add } from "../index";
+import { add } from '../index'
 
-describe("add", () => {
-  it("should add", () => {
-    expect(add(2, 3)).toEqual(5);
-  });
-});
+describe('add', () => {
+  it('should add', () => {
+    expect(add(2, 3)).toEqual(5)
+  })
+})

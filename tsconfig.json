@@ -9,9 +9,14 @@
     "strictNullChecks": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "declaration": true,
-    "lib": ["es2015", "dom"]
+    // "declaration": true,
+    "lib": [
+      "es2015",
+      "dom"
+    ]
     // "allowJs": true
   },
-  "include": ["./src/**/*"]
+  "include": [
+    "./src/**/*"
+  ]
 }

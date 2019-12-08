@@ -1,50 +1,46 @@
-const path = require("path");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const path = require('path')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
-const devMode = process.env.NODE_ENV !== "production";
+const devMode = process.env.NODE_ENV !== 'production'
 
 const config = {
-  entry: "./src/index.ts",
+  entry: './src/index.ts',
   output: {
-    filename: "bundle.js",
-    path: path.join(__dirname, "dist")
+    filename: 'bundle.js',
+    path: path.join(__dirname, 'dist')
   },
   devServer: {
     contentBase: [path.resolve(__dirname)],
-    publicPath: "/dist"
+    publicPath: '/dist'
   },
-  mode: devMode ? "development" : "production",
-  devtool: "source-map",
+  mode: devMode ? 'development' : 'production',
+  devtool: 'source-map',
   resolve: {
-    extensions: [".ts", ".tsx", ".js", ".jsx", ".json"]
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json']
   },
   plugins: [
     new MiniCssExtractPlugin({
-      fileName: devMode ? "[name].css" : "[name].[hash].css",
-      chunkFileName: devMode ? "[id].css" : "[id].[hash].css"
+      fileName: devMode ? '[name].css' : '[name].[hash].css',
+      chunkFileName: devMode ? '[id].css' : '[id].[hash].css'
     })
   ],
   module: {
     rules: [
-      { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
-      { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
+      { test: /\.tsx?$/, loader: 'ts-loader' },
+      { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
       {
         test: /\.(sa|sc|c)ss$/,
         use: [
-          devMode ? "style-loader" : MiniCssExtractPlugin.loader,
-          "css-loader",
-          "sass-loader"
+          devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader'
         ]
       }
     ]
   }
-  // externals: {
-  //   react: 'React',
-  //   'react-dom': 'ReactDOM'
-  // }
-};
+}
 
 if (!devMode) {
   config.optimizations = {
@@ -59,14 +55,14 @@ if (!devMode) {
     splitChunks: {
       cacheGroups: {
         styles: {
-          name: "styles",
+          name: 'styles',
           test: /\.css$/,
-          chunks: "all",
+          chunks: 'all',
           enforce: true
         }
       }
     }
-  };
+  }
 }
 
-module.exports = config;
+module.exports = config
